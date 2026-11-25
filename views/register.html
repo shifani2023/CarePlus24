@@ -1,0 +1,414 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Register | CarePlus24</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            min-height: 100vh;
+            padding: 30px 15px;
+
+            background:
+                radial-gradient(circle at 10% 10%, #b9f0f1 0, transparent 30%),
+                radial-gradient(circle at 90% 90%, #c5f2ef 0, transparent 35%),
+                linear-gradient(135deg, #e9fbfc, #f6fbfc, #dff7f7);
+
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .register-container {
+            background: rgba(255,255,255,0.96);
+            width: 100%;
+            max-width: 600px;
+            padding: 40px;
+            border-radius: 20px;
+            box-shadow: 0 15px 45px rgba(8, 127, 140, 0.12);
+        }
+
+        .logo {
+            text-align: center;
+            color: #087f8c;
+            font-size: 27px;
+            font-weight: bold;
+            margin-bottom: 25px;
+        }
+
+        .heading {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .heading h1 {
+            color: #1e293b;
+            font-size: 28px;
+            margin-bottom: 10px;
+        }
+
+        .heading p {
+            color: #64748b;
+            line-height: 1.6;
+        }
+
+        .form-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 18px;
+        }
+
+        .form-group {
+            margin-bottom: 18px;
+        }
+
+        .full-width {
+            grid-column: 1 / -1;
+        }
+
+        label {
+            display: block;
+            font-weight: bold;
+            color: #334155;
+            margin-bottom: 8px;
+        }
+
+        input,
+        select,
+        textarea {
+            width: 100%;
+            padding: 13px;
+            border: 1px solid #cbd5e1;
+            border-radius: 8px;
+            font-size: 15px;
+            font-family: inherit;
+            background: white;
+            outline: none;
+        }
+
+        input:focus,
+        select:focus,
+        textarea:focus {
+            border-color: #087f8c;
+            box-shadow: 0 0 0 3px rgba(8,127,140,0.1);
+        }
+
+        textarea {
+            resize: vertical;
+        }
+
+        .register-button {
+            width: 100%;
+            background: #087f8c;
+            color: white;
+            border: none;
+            padding: 15px;
+            border-radius: 8px;
+            font-weight: bold;
+            font-size: 16px;
+            cursor: pointer;
+            margin-top: 10px;
+        }
+
+        .register-button:hover {
+            background: #066873;
+        }
+
+        .register-button:disabled {
+            background: #94a3b8;
+            cursor: not-allowed;
+        }
+
+        #message {
+            text-align: center;
+            margin-top: 18px;
+            font-weight: bold;
+            line-height: 1.5;
+        }
+
+        .error-message {
+            color: #dc2626;
+        }
+
+        .success-message {
+            color: #15803d;
+        }
+
+        .login-link,
+        .home-link {
+            text-align: center;
+            margin-top: 22px;
+            color: #64748b;
+        }
+
+        .login-link a {
+            color: #087f8c;
+            font-weight: bold;
+            text-decoration: none;
+        }
+
+        .home-link a {
+            color: #64748b;
+            text-decoration: none;
+        }
+
+        @media (max-width: 550px) {
+            .register-container {
+                padding: 28px 20px;
+            }
+
+            .form-grid {
+                grid-template-columns: 1fr;
+                gap: 0;
+            }
+
+            .full-width {
+                grid-column: auto;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="register-container">
+
+        <div class="logo">✚ CarePlus24</div>
+
+        <div class="heading">
+            <h1>Create Your Account</h1>
+
+            <p>
+                Register as a patient to manage
+                your healthcare appointments.
+            </p>
+        </div>
+
+        <form id="registerForm">
+
+            <div class="form-grid">
+
+                <div class="form-group full-width">
+                    <label for="fullName">Full Name</label>
+
+                    <input
+                        type="text"
+                        id="fullName"
+                        name="fullName"
+                        placeholder="Enter your full name"
+                        required
+                    >
+                </div>
+
+                <div class="form-group">
+                    <label for="email">Email Address</label>
+
+                    <input
+                        type="email"
+                        id="email"
+                        name="email"
+                        placeholder="Enter your email"
+                        required
+                    >
+                </div>
+
+                <div class="form-group">
+                    <label for="phone">Phone Number</label>
+
+                    <input
+                        type="tel"
+                        id="phone"
+                        name="phone"
+                        placeholder="Enter your phone number"
+                        required
+                    >
+                </div>
+
+                <div class="form-group">
+                    <label for="dateOfBirth">Date of Birth</label>
+
+                    <input
+                        type="date"
+                        id="dateOfBirth"
+                        name="dateOfBirth"
+                    >
+                </div>
+
+                <div class="form-group">
+                    <label for="gender">Gender</label>
+
+                    <select id="gender" name="gender">
+                        <option value="">Select gender</option>
+                        <option value="Male">Male</option>
+                        <option value="Female">Female</option>
+                        <option value="Other">Other</option>
+                        <option value="Prefer not to say">
+                            Prefer not to say
+                        </option>
+                    </select>
+                </div>
+
+                <div class="form-group full-width">
+                    <label for="address">Address</label>
+
+                    <textarea
+                        id="address"
+                        name="address"
+                        rows="3"
+                        placeholder="Enter your address"
+                    ></textarea>
+                </div>
+
+                <div class="form-group">
+                    <label for="password">Password</label>
+
+                    <input
+                        type="password"
+                        id="password"
+                        name="password"
+                        minlength="8"
+                        placeholder="Minimum 8 characters"
+                        required
+                    >
+                </div>
+
+                <div class="form-group">
+                    <label for="confirmPassword">Confirm Password</label>
+
+                    <input
+                        type="password"
+                        id="confirmPassword"
+                        name="confirmPassword"
+                        placeholder="Confirm your password"
+                        required
+                    >
+                </div>
+
+            </div>
+
+            <button
+                type="submit"
+                class="register-button"
+                id="registerButton"
+            >
+                Create Account
+            </button>
+
+            <p id="message"></p>
+
+        </form>
+
+        <div class="login-link">
+            Already have an account?
+            <a href="/login">Login here</a>
+        </div>
+
+        <div class="home-link">
+            <a href="/">← Back to Home</a>
+        </div>
+
+    </div>
+
+    <script>
+        const registerForm = document.getElementById("registerForm");
+        const registerButton = document.getElementById("registerButton");
+        const message = document.getElementById("message");
+
+        registerForm.addEventListener("submit", async function(event) {
+
+            event.preventDefault();
+
+            message.textContent = "";
+            message.className = "";
+
+            const password = document.getElementById("password").value;
+            const confirmPassword =
+                document.getElementById("confirmPassword").value;
+
+            // Check passwords
+            if (password !== confirmPassword) {
+
+                message.textContent = "Passwords do not match.";
+                message.className = "error-message";
+
+                return;
+
+            }
+
+            // Prepare registration information
+            const formData = {
+                fullName: document.getElementById("fullName").value.trim(),
+                email: document.getElementById("email").value.trim(),
+                phone: document.getElementById("phone").value.trim(),
+                dateOfBirth: document.getElementById("dateOfBirth").value || null,
+                gender: document.getElementById("gender").value || null,
+                address: document.getElementById("address").value.trim(),
+                password: password
+            };
+
+            try {
+
+                registerButton.disabled = true;
+                registerButton.textContent = "Creating Account...";
+
+                const response = await fetch("/api/auth/register", {
+                    method: "POST",
+
+                    headers: {
+                        "Content-Type": "application/json"
+                    },
+
+                    body: JSON.stringify(formData)
+                });
+
+                const result = await response.json();
+
+                if (response.ok) {
+
+                    message.textContent = result.message;
+                    message.className = "success-message";
+
+                    registerForm.reset();
+
+                    setTimeout(function() {
+                        window.location.href = "/login";
+                    }, 1500);
+
+                } else {
+
+                    message.textContent = result.message;
+                    message.className = "error-message";
+
+                }
+
+            } catch (error) {
+
+                message.textContent =
+                    "Unable to connect to the server. Please try again.";
+
+                message.className = "error-message";
+
+                console.error("Registration error:", error);
+
+            } finally {
+
+                registerButton.disabled = false;
+                registerButton.textContent = "Create Account";
+
+            }
+
+        });
+    </script>
+
+</body>
+</html>
